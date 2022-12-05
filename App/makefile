@@ -7,8 +7,9 @@ install:
 	docker compose exec php composer require laravel/sail --dev
 
 build:
-	./vendor/bin/sail up -d --build
+	docker compose up -d --build
 	${cache}
+	docker compose exec php chmod -R 777 ./storage/
 	docker compose exec php php artisan key:generate
 	${dbfresh}
 	${dbseed}
@@ -26,11 +27,11 @@ cache:
 	docker compose exec php php artisan config:cache
 
 up:
-	./vendor/bin/sail up -d
+	docker compose up -d
 	docker compose exec php npm run dev
 
 down:
-	./vendor/bin/sail down
+	docker compose down
 
 php:
 	docker compose exec php sh
