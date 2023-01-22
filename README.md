@@ -21,7 +21,7 @@ git clone git@github.com:megumisugita0615/BlogApp.git
 環境構築
 
 ```
-cd BlogApp/App
+cd BlogApp/backend
 make init
 ```
 
