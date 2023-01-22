@@ -1,14 +1,19 @@
+init:
+	@make env
+	@make install
+	@make build
+
 env:
 	cp .env.example .env
 	vi .env
 
 install:
 	docker run --rm \
-	-u "$(id -u):$(id -g)" \
-	-v "$(pwd):/var/www/html" \
-	-w /var/www/html \
-	laravelsail/php81-composer:latest \
-	composer install --ignore-platform-reqs
+		-u "$(id -u):$(id -g)" \
+		-v "$(pwd):/var/www/html" \
+		-w /var/www/html \
+		laravelsail/php81-composer:latest \
+		composer install --ignore-platform-reqs
 
 build:
 	./vendor/bin/sail up -d
