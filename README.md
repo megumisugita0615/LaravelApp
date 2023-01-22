@@ -7,12 +7,12 @@
 
 `https`
 ```
-git clone -b feature/env https://github.com/megumisugita0615/BlogApp.git
+git clone https://github.com/megumisugita0615/BlogApp.git
 ```
 
 `ssh`
 ```
-git clone -b feature/env git@github.com:megumisugita0615/BlogApp.git
+git clone git@github.com:megumisugita0615/BlogApp.git
 ```
 
 ディレクトリを移動
