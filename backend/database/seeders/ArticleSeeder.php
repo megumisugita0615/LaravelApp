@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Article;
 
 class ArticleSeeder extends Seeder
 {
@@ -14,9 +15,9 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles')->insert([
-            'title' => Str::random(10),
-            'body' => Str::random(100)
-        ]);
+        Article::factory()
+            ->count(50)
+            ->hasPosts(1)
+            ->create();
     }
 }

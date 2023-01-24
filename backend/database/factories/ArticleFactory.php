@@ -17,7 +17,9 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->title(),
+            'body' => fake()->paragraph(),
+            'user_id' => User::factory(),
         ];
     }
 }
