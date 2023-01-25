@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Article;
 
-class UserSeeder extends Seeder
+class ArticlesTablexSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()
-            ->count(50)
-            ->hasPosts(1)
-            ->create();
+        Article::factory(3)->create(['user_id' => 1]);
     }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longtext('body');
             $table->datetime('created_at');
             $table->datetime('updated_at');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 
