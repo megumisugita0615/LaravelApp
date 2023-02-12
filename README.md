@@ -1,79 +1,47 @@
-# BlogApp
+This is [Laravel Tutorial](https://github.com/megumisugita0615/LaravelApp).
 
-ブログアプリのリポジトリです。
-
-## 環境構築・動作確認
-
-リポジトリをクローン
-
-`https`
+## Clone repository
 
 ```
-git clone https://github.com/megumisugita0615/BlogApp.git
+git clone https://github.com/megumisugita0615/LaravelApp.git
 ```
 
-`ssh`
+## Environment
+
+- Docker version 20.10.21
+- Docker Compose version v2.13.0
+- Composer version 2.4.4
+- PHP 8.1.12 (cli) 
+- Laravel Framework 9.38.0
+- npm 8.19.3 / node v16.18.1
+- VITE v3.2.3
+
+## Env Construction
+
+movie directory
 
 ```
-git clone git@github.com:megumisugita0615/BlogApp.git
+cd LaravelApp/backend
 ```
 
-環境構築
+build (initial)
 
 ```
-cd BlogApp/backend
-make init
+make env
+make build
 ```
 
-make コマンドでうまくいかない場合
-
-```
-cp .env.example .env
-```
-
-.env の内容を書き換え
+`.env`
 
 ```
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=blogapp
+DB_DATABASE=laravel
 DB_USERNAME=sail
 DB_PASSWORD=password
 ```
 
-続きを実行
+[http://localhost](http://localhost)
 
-```
-docker run --rm \
-	-u "$(id -u):$(id -g)" \
-	-v "$(pwd):/var/www/html" \
-	-w /var/www/html \
-	laravelsail/php81-composer:latest \
-	composer install --ignore-platform-reqs
-./vendor/bin/sail up -d
-docker compose exec php chmod -R 777 ./storage/
-docker compose exec php php artisan key:generate
-composer dump-autoload
-docker compose exec php php artisan config:cache
-docker compose exec php php artisan migrate:fresh
-docker compose exec php php artisan db:seed
-docker compose exec php npm install
-docker compose exec php npm run dev
-```
-
-マイグレーション・シーディングがうまくいかない場合
-
-```
-composer dump-autoload
-make cache
-make dbfresh
-make db seed
-```
-
-`npm run dev`まで完了したら[http://localhost](http://localhost)にアクセス
-<img width="1440" alt="スクリーンショット 2022-12-05 22 33 20" src="https://user-images.githubusercontent.com/106021148/205650001-4d2df7ce-7a39-45a7-bb3b-5672f3089002.png">
-
-## その他
-
-- 特になし
+<img width="1440" alt="welcome page" src="https://user-images.githubusercontent.com/106021148/205650001-4d2df7ce-7a39-45a7-bb3b-5672f3089002.png">
